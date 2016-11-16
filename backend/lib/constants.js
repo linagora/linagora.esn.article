@@ -6,6 +6,7 @@ module.exports = {
   NOTIFICATIONS: {
     CREATED: 'esn:article:created'
   },
+  OBJECT_TYPE: 'esn.article',
   SKIP_FIELDS: {
     USER: '-password -accounts'
   }

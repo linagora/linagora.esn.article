@@ -1,6 +1,7 @@
 'use strict';
 
 const CONSTANTS = require('./constants');
+const OBJECT_TYPE = CONSTANTS.OBJECT_TYPE;
 
 module.exports = function(dependencies) {
   const mongoose = dependencies('db').mongo.mongoose;
@@ -8,9 +9,50 @@ module.exports = function(dependencies) {
   const pubsub = dependencies('pubsub').local;
 
   return {
+    collaborationHook,
     create,
     list
   };
+
+  function collaborationHook() {
+    var collaboration = dependencies('collaboration');
+
+    return {
+      create,
+      getFromActivityStreamID,
+      getStreamsForUser,
+      query,
+      queryOne
+    };
+
+    function articleToStream(article) {
+      return {
+        uuid: article.activity_stream.uuid,
+        target: {
+          objectType: OBJECT_TYPE,
+          _id: article._id,
+          displayName: article.title,
+          id: `urn:linagora.com:${OBJECT_TYPE}:${article._id}`
+        }
+      };
+    }
+
+    function query(q, callback) {
+      return collaboration.query(OBJECT_TYPE, q, callback);
+    }
+
+    function queryOne(q, callback) {
+      return collaboration.queryOne(OBJECT_TYPE, q, callback);
+    }
+
+    function getFromActivityStreamID(uuid, callback) {
+      collaboration.queryOne(OBJECT_TYPE, {'activity_stream.uuid': uuid}, callback);
+    }
+
+    function getStreamsForUser(userId, options, callback) {
+      list({limit: -1}).then(articles => callback(null, articles.list.map(articleToStream)), callback);
+    }
+  }
 
   function create(article) {
     return Article.create(article).then(created => {

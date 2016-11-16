@@ -19,6 +19,7 @@ const articleModule = new AwesomeModule(MODULE_NAME, {
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.webserver.wrapper', 'webserver-wrapper'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.esn-config', 'esn-config'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.webserver.middleware.authorization', 'authorizationMW'),
+    new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.webserver.middleware.activitystream', 'activitystreamMW'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.user', 'user'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.collaboration', 'collaboration'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.wsserver', 'wsserver'),
@@ -27,6 +28,7 @@ const articleModule = new AwesomeModule(MODULE_NAME, {
   ],
   states: {
     lib: function(dependencies, callback) {
+      const collaborationModule = dependencies('collaboration');
       const libModule = require('./backend/lib')(dependencies);
       const article = require('./backend/webserver/api')(dependencies, libModule);
       const lib = {
@@ -36,6 +38,7 @@ const articleModule = new AwesomeModule(MODULE_NAME, {
         lib: libModule
       };
 
+      collaborationModule.registerCollaborationLib('article', libModule.article.collaborationHook());
       callback(null, lib);
     },
 
