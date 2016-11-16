@@ -6,6 +6,7 @@ module.exports = function(dependencies, lib) {
 
   return {
     create,
+    get,
     getArticles
   };
 
@@ -24,6 +25,10 @@ module.exports = function(dependencies, lib) {
 
       res.status(500).json({error: {code: 500, message: 'Server error', details: err.message}});
     });
+  }
+
+  function get(req, res) {
+    res.status(200).json(req.article);
   }
 
   function getArticles(req, res) {

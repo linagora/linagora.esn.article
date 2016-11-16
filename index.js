@@ -45,7 +45,7 @@ const articleModule = new AwesomeModule(MODULE_NAME, {
     deploy: function(dependencies, callback) {
       const webserverWrapper = dependencies('webserver-wrapper');
       const app = require('./backend/webserver/application')(this, dependencies);
-      const lessFile = path.resolve(__dirname, './frontend/app/style.less');
+      const lessFile = path.resolve(__dirname, './frontend/app/article.styles.less');
 
       let frontendModules = glob.sync([
         FRONTEND_JS_PATH + '**/!(*spec).js'
