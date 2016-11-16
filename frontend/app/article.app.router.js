@@ -20,10 +20,17 @@
       })
       .state('article.home', {
         url: '/home',
-        controller: 'articleHomeController',
         views: {
           'main@article': {
             templateUrl: '/article/app/home/article-main.html'
+          }
+        }
+      })
+      .state('article.article-list', {
+        url: '/articles/list',
+        views: {
+          'main@article': {
+            template: '<article-list/>'
           }
         }
       })
