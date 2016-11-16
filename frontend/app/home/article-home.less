@@ -1,0 +1,36 @@
+.article-home {
+  .flex-shorthand(1);
+
+  position: relative;
+  top: 47px;
+  height: 70vh;
+
+  .article-main {
+    .article-main-content {
+      .flex-shorthand(1);
+
+      margin-left: 7px;
+      margin-right: 7px;
+
+      .article-module-card {
+        .flex-horizontal-centered;
+
+        padding: 5px 10px;
+        background: @m-white;
+      }
+    }
+  }
+}
+
+.article-subheader-content {
+  .flex-horizontal-centered;
+
+  font-size: 1.2em;
+  color: @m-white;
+}
+
+@media(min-width: @screen-md-min) {
+  .article-home > .article-main {
+    margin-top: 15px;
+  }
+}
