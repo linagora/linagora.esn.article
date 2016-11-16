@@ -8,4 +8,8 @@ module.exports = function(dependencies, lib, router) {
   router.get('/articles',
     authorizationMW.requiresAPILogin,
     controller.getArticles);
+
+  router.post('/articles',
+    authorizationMW.requiresAPILogin,
+    controller.create);
 };
