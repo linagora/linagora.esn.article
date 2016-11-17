@@ -7,3 +7,5 @@
       span {{::ctrl.article.creator.description}}
     .meta
       span(am-time-ago="::ctrl.article.timestamps.creation")
+      span.dot
+      span.reading {{::ctrl.article.stats.reading.minutes}} #{__('min read')}

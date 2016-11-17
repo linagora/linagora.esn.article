@@ -11,7 +11,7 @@
 
   .text {
     padding-left: 15px;
-    
+
     a.author {
       font-size: 15px;
       color: @text-color;
@@ -26,6 +26,15 @@
     .meta {
       font-size: 13px;
       color: @secondaryTextColor;
+
+      .dot {
+        padding-right: .45em;
+        padding-left: .45em;
+
+        &:after {
+          content: '·'
+        }
+      }
     }
   }
 
