@@ -1,0 +1,33 @@
+.article-header {
+
+  .flex-row();
+
+  .avatar {
+    .ResizeImage(60px, 60px);
+    img {
+      .RoundedShape(50%);
+    }
+  }
+
+  .text {
+    padding-left: 15px;
+    
+    a.author {
+      font-size: 15px;
+      color: @text-color;
+      cursor: pointer;
+    }
+
+    .bio {
+      font-size: 13px;
+      color: @secondaryTextColor;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: @secondaryTextColor;
+    }
+  }
+
+
+}

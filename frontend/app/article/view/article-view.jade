@@ -1,4 +1,6 @@
 .article-view
+  .article-view-header(ng-if='ctrl.article')
+    article-header(article='ctrl.article')
   .article-view-title
     h1 {{::ctrl.article.title}}
   .article-view-content
