@@ -4,6 +4,7 @@ const uuid = require('node-uuid');
 
 module.exports = function(dependencies) {
 
+  const collaboration = dependencies('collaboration');
   const mongoose = dependencies('db').mongo.mongoose;
   const ObjectId = mongoose.Schema.ObjectId;
   const ArticleSchema = new mongoose.Schema({
@@ -14,6 +15,8 @@ module.exports = function(dependencies) {
     timestamps: {
       creation: {type: Date, default: Date.now}
     },
+    // collaboration type
+    type: {type: String, default: 'open'},
     activity_stream: {
       uuid: {type: String, default: uuid.v4},
       timestamps: {
@@ -23,5 +26,5 @@ module.exports = function(dependencies) {
     schemaVersion: {type: Number, default: 1}
   });
 
-  return mongoose.model('Article', ArticleSchema);
+  return collaboration.registerCollaborationModel('esn.article', 'Article', ArticleSchema);
 };

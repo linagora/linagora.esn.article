@@ -3,3 +3,5 @@
     h1 {{::ctrl.article.title}}
   .article-view-content
     {{::ctrl.article.content}}
+  .article-view-comments(ng-if='ctrl.article')
+    activity-stream(activitystream='ctrl.article', streams='ctrl.streams', writable='ctrl.writable')

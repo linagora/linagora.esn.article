@@ -30,7 +30,7 @@ module.exports = function(dependencies, lib) {
         objectType: 'activitystream',
         _id: uuid,
         target: {
-          objectType: 'article',
+          objectType: 'esn.article',
           object: article
         }
       };

@@ -7,6 +7,9 @@
    function articleViewController($stateParams, articleApiClientService) {
      var self = this;
 
+     self.streams = [];
+     self.writable = true;
+
      getArticle();
 
      function getArticle() {

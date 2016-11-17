@@ -38,7 +38,7 @@ const articleModule = new AwesomeModule(MODULE_NAME, {
         lib: libModule
       };
 
-      collaborationModule.registerCollaborationLib('article', libModule.article.collaborationHook());
+      collaborationModule.registerCollaborationLib('esn.article', libModule.article.collaborationHook());
       callback(null, lib);
     },
 
