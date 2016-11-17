@@ -12,17 +12,9 @@
           }
         },
         deepStateRedirect: {
-          default: 'article.home',
+          default: 'article.article-list',
           fn: function() {
-            return { state: 'article.home' };
-          }
-        }
-      })
-      .state('article.home', {
-        url: '/home',
-        views: {
-          'main@article': {
-            templateUrl: '/article/app/home/article-main.html'
+            return { state: 'article.article-list' };
           }
         }
       })

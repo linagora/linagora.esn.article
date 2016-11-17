@@ -1,5 +1,7 @@
 .article-list
-  .tic-client-display(ng-repeat= "article in ctrl.articles")
-    .article-card.clickable(ui-sref="article.article-view({ article: article, articleId: article._id })")
-      span {{article.title}}
+  .card.clickable(ng-repeat= "article in ctrl.articles", ui-sref="article.article-view({ article: article, articleId: article._id })")
+    .card-header
+      h2 {{article.title}}
+    .card-body()
+      {{article.headline}}
 fab(ui-sref='article.article-add')
