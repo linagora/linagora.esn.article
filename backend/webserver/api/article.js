@@ -3,11 +3,17 @@
 module.exports = function(dependencies, lib, router) {
 
   const authorizationMW = dependencies('authorizationMW');
+  const articleMW = require('../middlewares/article')(dependencies, lib);
   const controller = require('../controllers/article')(dependencies, lib);
 
   router.get('/articles',
     authorizationMW.requiresAPILogin,
     controller.getArticles);
+
+  router.get('/articles/:id',
+    authorizationMW.requiresAPILogin,
+    articleMW.load,
+    controller.get);
 
   router.post('/articles',
     authorizationMW.requiresAPILogin,

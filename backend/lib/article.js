@@ -11,6 +11,7 @@ module.exports = function(dependencies) {
   return {
     collaborationHook,
     create,
+    getById,
     list
   };
 
@@ -60,6 +61,10 @@ module.exports = function(dependencies) {
 
       return created;
     });
+  }
+
+  function getById(id) {
+    return Article.findById(id).populate('creator', CONSTANTS.SKIP_FIELDS.USER);
   }
 
   function list(options = {}) {

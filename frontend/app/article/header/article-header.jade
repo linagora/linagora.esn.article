@@ -1,0 +1,11 @@
+.article-header
+  .avatar
+    img(src='/images/user.png', ng-src='/api/users/{{::ctrl.article.creator._id}}/profile/avatar')
+  .text
+    a.author {{::ctrl.authorName}}
+    .bio(ng-if='ctrl.article.creator.description')
+      span {{::ctrl.article.creator.description}}
+    .meta
+      span(am-time-ago="::ctrl.article.timestamps.creation")
+      span.dot
+      span.reading {{::ctrl.article.stats.reading.minutes}} #{__('min read')}

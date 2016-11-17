@@ -62,8 +62,8 @@
   },
   "author": "Linagora R&D",
   "license": "AGPL-3.0",
-  "engines" : {
-    "node" : ">=6.5.0"
+  "engines": {
+    "node": ">=6.5.0"
   },
   "dependencies": {
     "async": "2.0.1",
@@ -77,6 +77,7 @@
     "mongoose": "4.6.0",
     "node-uuid": "1.4.7",
     "q": "1.4.1",
+    "reading-time": "1.1.0",
     "request": "2.74.0"
   }
 }
