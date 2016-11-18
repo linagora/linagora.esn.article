@@ -6,16 +6,26 @@
 
   function articleApiClientService(articleRestangular) {
     return {
+      createArticle: createArticle,
       getArticle: getArticle,
       getArticles: getArticles
     };
 
+    function createArticle(article) {
+      return _getRoot().post(article);
+    }
+
+    function _getRoot() {
+      return articleRestangular.all('articles');
+    }
+
     function getArticle(articleId) {
-      return articleRestangular.all('articles').one(articleId).get();
+      return _getRoot().one(articleId).get();
     }
 
     function getArticles(options) {
-      return articleRestangular.all('articles').getList(options);
+      return _getRoot().getList(options);
     }
+
   }
 })();

@@ -26,6 +26,14 @@
           }
         }
       })
+      .state('article.article-add', {
+        url: '/articles/add',
+        views: {
+          'main@article': {
+            template: '<article-add />'
+          }
+        }
+      })
       .state('article.article-view', {
         url: '/articles/:articleId',
         params: {
