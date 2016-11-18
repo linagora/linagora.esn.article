@@ -1,0 +1,38 @@
+.article-list-item-header {
+
+  .flex-row();
+
+  .avatar {
+    .ResizeImage(36px, 36px);
+    img {
+      .RoundedShape(50%);
+    }
+  }
+
+  .text {
+    padding-left: 10px;
+
+    a.author {
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: @secondaryTextColor;
+
+      a {
+        color: @secondaryTextColor;
+      }
+
+      .dot {
+        padding-right: .45em;
+        padding-left: .45em;
+
+        &:after {
+          content: '·'
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,9 @@
-.article-header
+.article-list-item-header
   .avatar
     img(src='/images/user.png', ng-src='/api/users/{{::ctrl.article.creator._id}}/profile/avatar')
   .text
     a.author(ng-href='/#/profile/{{::ctrl.article.creator._id}}') {{::ctrl.authorName}}
-    .bio(ng-if='ctrl.article.creator.description')
-      span {{::ctrl.article.creator.description}}
     .meta
-      span(am-time-ago="::ctrl.article.timestamps.creation")
+      a(ui-sref="article.article-view({ article: ctrl.article, articleId: ctrl.article._id })") {{::ctrl.article.timestamps.creation | amDateFormat:'MMM Do YYYY'}}
       span.dot
       span.reading {{::ctrl.article.stats.reading.minutes}} #{__('min read')}
