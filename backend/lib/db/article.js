@@ -9,7 +9,6 @@ module.exports = function(dependencies) {
   const ObjectId = mongoose.Schema.ObjectId;
   const ArticleSchema = new mongoose.Schema({
     title: {type: String, required: true},
-    headline: {type: String},
     content: {type: String, required: true},
     creator: {type: ObjectId, ref: 'User'},
     timestamps: {
