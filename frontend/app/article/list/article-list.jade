@@ -1,3 +1,8 @@
 .article-list
-  article-list-item(ng-repeat="article in ctrl.articles", article="article")
+  infinite-list(load-more-elements='ctrl.loadNext()')
+    article-list-item(ng-repeat="article in ctrl.articles", article="article")
+
+  ul.nav.nav-pills.nav-stacked(ng-if='!ctrl.infiniteScrollCompleted')
+    li.text-center(openpaas-logo-spinner, spinner-start-active='1', spinner-size='0.5')
+
 fab(ui-sref='article.article-add')

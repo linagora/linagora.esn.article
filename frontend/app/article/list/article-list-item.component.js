@@ -7,7 +7,7 @@
   function articleListItem() {
     var component = {
       templateUrl: '/article/app/article/list/article-list-item.html',
-      controller: 'articleListItemController',
+      controller: angular.noop,
       controllerAs: 'ctrl',
       bindings: {
         article: '='
