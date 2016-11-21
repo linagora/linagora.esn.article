@@ -1,7 +1,8 @@
 .article-list
-  .card.clickable(ng-repeat= "article in ctrl.articles", ui-sref="article.article-view({ article: article, articleId: article._id })")
-    .card-header
-      h2 {{article.title}}
-    .card-body()
-      {{article.headline}}
+  infinite-list(load-more-elements='ctrl.loadNext()')
+    article-list-item(ng-repeat="article in ctrl.articles", article="article")
+
+  ul.nav.nav-pills.nav-stacked(ng-if='!ctrl.infiniteScrollCompleted')
+    li.text-center(openpaas-logo-spinner, spinner-start-active='1', spinner-size='0.5')
+
 fab(ui-sref='article.article-add')

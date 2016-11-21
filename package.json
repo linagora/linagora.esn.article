@@ -78,6 +78,7 @@
     "node-uuid": "1.4.7",
     "q": "1.4.1",
     "reading-time": "1.1.0",
-    "request": "2.74.0"
+    "request": "2.74.0",
+    "truncate": "2.0.0"
   }
 }

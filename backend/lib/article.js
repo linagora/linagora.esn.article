@@ -78,7 +78,7 @@ module.exports = function(dependencies) {
         articleQuery = articleQuery.limit(options.limit);
       }
 
-      return articleQuery.sort('-timestamps.created_at').populate('creator', CONSTANTS.SKIP_FIELDS.USER).then(list => ({list, total_count}));
+      return articleQuery.sort('-timestamps.creation').populate('creator', CONSTANTS.SKIP_FIELDS.USER).then(list => ({list, total_count}));
     });
   }
 };

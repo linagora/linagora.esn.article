@@ -1,0 +1,16 @@
+.article-list-item
+  article-list-item-header(article='ctrl.article')
+  .title
+    h1
+      a(ui-sref="article.article-view({ article: ctrl.article, articleId: ctrl.article._id })") {{::ctrl.article.title}}
+  .summary
+    span {{::ctrl.article.summary}}
+  .bottom
+    .read-more
+      a(ui-sref="article.article-view({ article: ctrl.article, articleId: ctrl.article._id })") #{__('Read more...')}
+    .stats
+      .likes
+        i.mdi.mdi-heart
+        span {{::ctrl.article.stats.likes.size || 0}}
+      .comments
+        span {{::ctrl.article.stats.comments.size || 0}} #{__('comments')}
