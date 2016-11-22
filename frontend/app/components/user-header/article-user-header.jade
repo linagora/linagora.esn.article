@@ -1,0 +1,7 @@
+.article-user-header
+  .avatar
+    img(src='/images/user.png', ng-src='/api/users/{{::ctrl.user._id}}/profile/avatar')
+  .text
+    a.author(ng-href='/#/profile/{{::ctrl.user._id}}') {{::ctrl.userName}}
+    .bio(ng-if='ctrl.user.description')
+      span {{::ctrl.user.description}}

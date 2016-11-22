@@ -1,0 +1,4 @@
+.article-form
+  form(name= "{{ ctrl.formName }}")
+    input(type='text', ng-model='ctrl.article.title', required, placeholder="Title" autofocus)
+    textarea(type='text', ng-model='ctrl.article.content', required, placeholder="Tell your story")
