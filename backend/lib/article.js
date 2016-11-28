@@ -8,12 +8,14 @@ module.exports = function(dependencies) {
   const Article = mongoose.model('Article');
   const TimelineEntry = mongoose.model('TimelineEntry');
   const pubsub = dependencies('pubsub').local;
+  const like = dependencies('like');
 
   return {
     collaborationHook,
     create,
     getById,
     getNbOfComments,
+    getNbOfLikes,
     list
   };
 
@@ -86,6 +88,10 @@ module.exports = function(dependencies) {
     }
 
     return getById(id).then(countComments);
+  }
+
+  function getNbOfLikes(id) {
+    return like.getNbOfLikes({id: String(id), objectType: OBJECT_TYPE});
   }
 
   function list(options = {}) {

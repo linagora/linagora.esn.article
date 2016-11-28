@@ -24,9 +24,13 @@ module.exports = function(lib) {
     reading.minutes = Math.ceil(reading.minutes.toFixed(2));
     article.stats.reading = reading;
 
-    return Q.allSettled([lib.article.getNbOfComments(article._id)]).spread(comments => {
+    return Q.allSettled([lib.article.getNbOfComments(article._id), lib.article.getNbOfLikes(article._id)]).spread((comments, likes) => {
       if (comments.state === 'fulfilled') {
         article.stats.comments.size = comments.value || 0;
+      }
+
+      if (likes.state === 'fulfilled') {
+        article.stats.likes.size = likes.value || 0;
       }
 
       return article;
