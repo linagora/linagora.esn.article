@@ -6,12 +6,14 @@ const OBJECT_TYPE = CONSTANTS.OBJECT_TYPE;
 module.exports = function(dependencies) {
   const mongoose = dependencies('db').mongo.mongoose;
   const Article = mongoose.model('Article');
+  const TimelineEntry = mongoose.model('TimelineEntry');
   const pubsub = dependencies('pubsub').local;
 
   return {
     collaborationHook,
     create,
     getById,
+    getNbOfComments,
     list
   };
 
@@ -65,6 +67,25 @@ module.exports = function(dependencies) {
 
   function getById(id) {
     return Article.findById(id).populate('creator', CONSTANTS.SKIP_FIELDS.USER);
+  }
+
+  function getNbOfComments(id) {
+    function countComments(article) {
+      if (!article) {
+        return 0;
+      }
+
+      const query = {
+        target: {
+          objectType: 'activitystream',
+          _id: article.activity_stream.uuid
+        }
+      };
+
+      return TimelineEntry.find(query).count();
+    }
+
+    return getById(id).then(countComments);
   }
 
   function list(options = {}) {

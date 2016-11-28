@@ -3,7 +3,7 @@
 module.exports = function(dependencies, lib) {
 
   const logger = dependencies('logger');
-  const denormalize = require('../denormalizers/article')();
+  const denormalize = require('../denormalizers/article')(lib);
 
   return {
     create,
