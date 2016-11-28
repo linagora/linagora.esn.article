@@ -15,3 +15,5 @@
       .comments
         span(ng-if="ctrl.article.stats.comments.size !== 1") {{::ctrl.article.stats.comments.size || 0}} #{__('comments')}
         span(ng-if="ctrl.article.stats.comments.size === 1") 1 #{__('comments')}
+    .votes
+      vote-summary-lite(object-type='ctrl.ARTICLE_OBJECT_TYPE', object-id='ctrl.article._id')
