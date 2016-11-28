@@ -14,6 +14,7 @@
     'esn.user',
     'restangular',
     'esn.lodash-wrapper',
+    'linagora.esn.vote',
     'op.dynamicDirective',
     'ui.router'
   ]);

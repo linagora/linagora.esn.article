@@ -24,7 +24,8 @@ const articleModule = new AwesomeModule(MODULE_NAME, {
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.collaboration', 'collaboration'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.wsserver', 'wsserver'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.helpers', 'helpers'),
-    new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.db', 'db')
+    new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.db', 'db'),
+    new Dependency(Dependency.TYPE_NAME, 'linagora.esn.vote', 'vote')
   ],
   states: {
     lib: function(dependencies, callback) {
