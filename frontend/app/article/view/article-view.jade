@@ -7,6 +7,6 @@
     {{::ctrl.article.content}}
   .article-view-options
     .article-view-vote(ng-if='ctrl.article')
-      vote(object-type='ctrl.ARTICLE_OBJECT_TYPE', object-id='ctrl.article._id')
+      vote(object-type='ctrl.ARTICLE_OBJECT_TYPE', object-id='ctrl.article._id', can-vote='ctrl.article.status !== ctrl.ARTICLE_STATUS.closed')
   .article-view-comments(ng-if='ctrl.article')
     activity-stream(activitystream='ctrl.article', streams='ctrl.streams', writable='ctrl.writable')
