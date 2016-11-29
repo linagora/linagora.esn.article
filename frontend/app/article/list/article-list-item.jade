@@ -3,6 +3,8 @@
   .title
     h1
       a(ui-sref="article.article-view({ article: ctrl.article, articleId: ctrl.article._id })") {{::ctrl.article.title}}
+    .status
+      span(ng-if="ctrl.article.status === ctrl.ARTICLE_STATUS.closed") #{__("closed")}
   .summary
     span {{::ctrl.article.summary}}
   .bottom
