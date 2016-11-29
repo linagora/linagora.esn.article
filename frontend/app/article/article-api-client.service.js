@@ -8,7 +8,8 @@
     return {
       createArticle: createArticle,
       getArticle: getArticle,
-      getArticles: getArticles
+      getArticles: getArticles,
+      updateArticleStatus: updateArticleStatus
     };
 
     function createArticle(article) {
@@ -27,5 +28,8 @@
       return _getRoot().getList(options);
     }
 
+    function updateArticleStatus(articleId, status) {
+      return _getRoot().one(articleId).one('status').customPUT({value: status});
+    }
   }
 })();

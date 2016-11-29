@@ -1,0 +1,8 @@
+.actions(ng-if='ctrl.isCreator()')
+  li.dropdown
+    a(href='', data-toggle='dropdown', aria-expanded='true')
+      i.mdi.mdi-dots-vertical
+    ul.dropdown-menu.dropdown-menu-right
+      li.clickable
+        a(ng-if="ctrl.status !== ctrl.ARTICLE_STATUS.closed", ng-click="ctrl.close()") #{__("Close")}
+        a(ng-if="ctrl.status !== ctrl.ARTICLE_STATUS.open", ng-click="ctrl.open()") #{__("Open")}
