@@ -1,5 +1,6 @@
 'use strict';
 
+const CONSTANTS = require('../../lib/constants');
 const readingTime = require('reading-time');
 const truncate = require('truncate');
 const Q = require('q');
@@ -16,7 +17,7 @@ module.exports = function(lib) {
     };
 
     // needed for activity_streams
-    article.writable = true;
+    article.writable = article.status === CONSTANTS.STATUS.open;
     article.summary = truncate(article.content, 400);
 
     const reading = readingTime(article.content);
