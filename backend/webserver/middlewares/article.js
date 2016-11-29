@@ -5,8 +5,16 @@ module.exports = function(dependencies, lib) {
   const logger = dependencies('logger');
 
   return {
+    isCreator,
     load
   };
+
+  function isCreator(req, res, next) {
+    if (!req.user._id.equals(req.article.creator._id)) {
+      return res.status(403).json({error: {code: 403, message: 'Forbidden', details: `Can not update article ${req.params.id}`}});
+    }
+    next();
+  }
 
   function load(req, res, next) {
     lib.article.getById(req.params.id).then(article => {

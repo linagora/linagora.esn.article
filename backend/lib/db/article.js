@@ -16,6 +16,7 @@ module.exports = function(dependencies) {
     },
     // collaboration type
     type: {type: String, default: 'open'},
+    status: {type: String, default: 'open'},
     activity_stream: {
       uuid: {type: String, default: uuid.v4},
       timestamps: {
