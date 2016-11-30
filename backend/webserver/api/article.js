@@ -15,6 +15,13 @@ module.exports = function(dependencies, lib, router) {
     articleMW.load,
     controller.get);
 
+  router.put('/articles/:id',
+    authorizationMW.requiresAPILogin,
+    articleMW.load,
+    articleMW.isCreator,
+    articleMW.canUpdate,
+    controller.update);
+
   router.put('/articles/:id/status',
     authorizationMW.requiresAPILogin,
     articleMW.load,

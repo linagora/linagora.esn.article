@@ -6,3 +6,4 @@
       li.clickable
         a(ng-if="ctrl.status !== ctrl.ARTICLE_STATUS.closed", ng-click="ctrl.close()") #{__("Close")}
         a(ng-if="ctrl.status !== ctrl.ARTICLE_STATUS.open", ng-click="ctrl.open()") #{__("Open")}
+        a(ng-if="ctrl.status !== ctrl.ARTICLE_STATUS.closed", ng-click="ctrl.edit()") #{__("Edit")}

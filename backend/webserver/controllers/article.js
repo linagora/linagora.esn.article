@@ -9,6 +9,7 @@ module.exports = function(dependencies, lib) {
     create,
     get,
     getArticles,
+    update,
     updateStatus
   };
 
@@ -50,6 +51,16 @@ module.exports = function(dependencies, lib) {
     }
   }
 
+  function update(req, res) {
+    lib.article.update(req.article._id, req.body.title, req.body.content)
+      .then(denormalize)
+      .then(result => res.status(200).json(result))
+      .catch(err => {
+        logger.error('Error while updating article', err);
+        res.status(500).json({error: {code: 500, message: 'Server error', details: err.message}});
+      });
+  }
+
   function updateStatus(req, res) {
     const article = req.article;
 
@@ -61,5 +72,5 @@ module.exports = function(dependencies, lib) {
         logger.error('Error while updating article', err);
         res.status(500).json({error: {code: 500, message: 'Server error', details: err.message}});
       });
-    }
+  }
 };
