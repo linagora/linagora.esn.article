@@ -16,7 +16,8 @@ module.exports = function(dependencies) {
     getById,
     getNbOfComments,
     getNbOfLikes,
-    list
+    list,
+    update
   };
 
   function collaborationHook() {
@@ -107,5 +108,9 @@ module.exports = function(dependencies) {
 
       return articleQuery.sort('-timestamps.creation').populate('creator', CONSTANTS.SKIP_FIELDS.USER).then(list => ({list, total_count}));
     });
+  }
+
+  function update(article) {
+    return Article.findOneAndUpdate({_id: article._id}, article, {new: true});
   }
 };

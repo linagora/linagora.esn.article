@@ -8,7 +8,8 @@ module.exports = function(dependencies, lib) {
   return {
     create,
     get,
-    getArticles
+    getArticles,
+    updateStatus
   };
 
   function create(req, res) {
@@ -49,4 +50,16 @@ module.exports = function(dependencies, lib) {
     }
   }
 
+  function updateStatus(req, res) {
+    const article = req.article;
+
+    article.status = req.body.value;
+    lib.article.update(article)
+      .then(denormalize)
+      .then(result => res.status(200).json(result))
+      .catch(err => {
+        logger.error('Error while updating article', err);
+        res.status(500).json({error: {code: 500, message: 'Server error', details: err.message}});
+      });
+    }
 };

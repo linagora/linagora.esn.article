@@ -9,5 +9,9 @@ module.exports = {
   OBJECT_TYPE: 'esn.article',
   SKIP_FIELDS: {
     USER: '-password -accounts'
+  },
+  STATUS: {
+    open: 'open',
+    closed: 'closed'
   }
 };

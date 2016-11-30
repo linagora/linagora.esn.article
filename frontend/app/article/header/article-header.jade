@@ -9,3 +9,5 @@
       span(am-time-ago="::ctrl.article.timestamps.creation")
       span.dot
       span.reading {{::ctrl.article.stats.reading.minutes}} #{__('min read')}
+  .options
+    article-actions(article='ctrl.article')

@@ -4,10 +4,11 @@
   angular.module('linagora.esn.article')
     .controller('articleViewController', articleViewController);
 
-   function articleViewController($stateParams, articleApiClientService, ARTICLE_OBJECT_TYPE) {
+   function articleViewController($stateParams, articleApiClientService, ARTICLE_OBJECT_TYPE, ARTICLE_STATUS) {
      var self = this;
 
      self.ARTICLE_OBJECT_TYPE = ARTICLE_OBJECT_TYPE;
+     self.ARTICLE_STATUS = ARTICLE_STATUS;
      self.streams = [];
      self.writable = true;
 
