@@ -39,8 +39,11 @@
 
     .stats {
       .flex-row;
-      .flex-space-between;
       padding-top: 10px;
+
+      & > * {
+        padding-right: 8px;
+      }
 
       .likes {
         .flex-vertical-centered;
@@ -51,15 +54,29 @@
         }
 
         i {
-          color: #4CAF50;
+          color: @unlikeColor;
           font-size: 20px;
           margin-right: 5px;
+        }
+
+        &.liked {
+          i {
+            color: @likeColor !important;/*override material admin*/
+          }
         }
       }
 
       .comments {
+        .flex-vertical-centered;
+
         span {
           font-size: 14px;
+          color: @secondaryTextColor;
+        }
+
+        i {
+          font-size: 20px;
+          margin-right: 5px;
           color: @secondaryTextColor;
         }
       }

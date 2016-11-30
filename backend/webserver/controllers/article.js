@@ -18,7 +18,7 @@ module.exports = function(dependencies, lib) {
 
     article.creator = req.user;
     lib.article.create(article)
-      .then(denormalize)
+      .then(denormalize.bind(null, req.user))
       .then(result => res.status(201).json(result))
       .catch(err => {
         logger.error('Error while creating article', err);
@@ -32,7 +32,7 @@ module.exports = function(dependencies, lib) {
   }
 
   function get(req, res) {
-    denormalize(req.article).then(result => res.status(200).json(result));
+    denormalize(req.user, req.article).then(result => res.status(200).json(result));
   }
 
   function getArticles(req, res) {
@@ -47,13 +47,13 @@ module.exports = function(dependencies, lib) {
       });
 
     function denormalizeList(result) {
-      return Promise.all(result.list.map(denormalize)).then(denormalized => ({total_count: result.total_count, list: denormalized}));
+      return Promise.all(result.list.map(denormalize.bind(null, req.user))).then(denormalized => ({total_count: result.total_count, list: denormalized}));
     }
   }
 
   function update(req, res) {
     lib.article.update(req.article._id, req.body.title, req.body.content)
-      .then(denormalize)
+      .then(denormalize.bind(null, req.user))
       .then(result => res.status(200).json(result))
       .catch(err => {
         logger.error('Error while updating article', err);
@@ -66,7 +66,7 @@ module.exports = function(dependencies, lib) {
 
     article.status = req.body.value;
     lib.article.update(article)
-      .then(denormalize)
+      .then(denormalize.bind(null, req.user))
       .then(result => res.status(200).json(result))
       .catch(err => {
         logger.error('Error while updating article', err);

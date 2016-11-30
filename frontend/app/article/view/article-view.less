@@ -28,6 +28,51 @@
     margin-top: 20px;
   }
 
+  .article-view-toolbar {
+    .flex-row;
+    margin-top: 15px;
+
+    & > * {
+      padding-right: 8px;
+    }
+
+    .likes {
+      .flex-vertical-centered;
+
+      &.liked {
+        i {
+          color: @likeColor !important;/*override material admin*/
+        }
+      }
+
+      span {
+        font-size: 16px;
+        color: @secondaryTextColor;
+      }
+
+      i {
+        color: @unlikeColor;
+        font-size: 26px;
+        margin-right: 5px;
+      }
+    }
+
+    .comments {
+      .flex-vertical-centered;
+
+      span {
+        font-size: 16px;
+        color: @secondaryTextColor;
+      }
+
+      i {
+        font-size: 24px;
+        margin-right: 5px;
+        color: @secondaryTextColor;
+      }
+    }
+  }
+
   .article-view-options {
 
     margin-top: 20px;

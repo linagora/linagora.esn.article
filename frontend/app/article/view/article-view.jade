@@ -7,8 +7,17 @@
     .content(ng-bind-html='ctrl.article.parsed')
   .article-view-oembed(ng-if='ctrl.article')
     oembeds(message="ctrl.article.content")
+  .article-view-toolbar
+    .likes(ng-class="{liked: ctrl.liked}")
+      i.mdi.mdi-heart
+      span {{ctrl.likes || 0}}
+    .comments
+      i.mdi.mdi-comment-outline
+      span {{ctrl.comments || 0}}
   .article-view-options
     .article-view-vote(ng-if='ctrl.article')
       vote(object-type='ctrl.ARTICLE_OBJECT_TYPE', object-id='ctrl.article._id', can-vote='ctrl.article.status !== ctrl.ARTICLE_STATUS.closed')
   .article-view-comments(ng-if='ctrl.article')
     activity-stream(activitystream='ctrl.article', streams='ctrl.streams', writable='ctrl.writable')
+
+article-like-fab(ng-if='ctrl.article', article='ctrl.article', on-liked='ctrl.onLiked()', on-unliked='ctrl.onUnliked()')
