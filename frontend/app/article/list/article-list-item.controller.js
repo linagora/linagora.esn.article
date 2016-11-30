@@ -4,10 +4,12 @@
   angular.module('linagora.esn.article')
     .controller('articleListItemController', articleListItemController);
 
-   function articleListItemController(ARTICLE_OBJECT_TYPE, ARTICLE_STATUS) {
+   function articleListItemController(articleMessageParser, ARTICLE_OBJECT_TYPE, ARTICLE_STATUS) {
      var self = this;
 
      self.ARTICLE_OBJECT_TYPE = ARTICLE_OBJECT_TYPE;
      self.ARTICLE_STATUS = ARTICLE_STATUS;
+
+     self.article.parsedSummary = articleMessageParser.simple(self.article.summary);
    }
 })();
