@@ -11,7 +11,7 @@ module.exports = function(dependencies, lib) {
 
   function isCreator(req, res, next) {
     if (!req.user._id.equals(req.article.creator._id)) {
-      return res.status(403).json({error: {code: 403, message: 'Forbidden', details: `Can not update article ${req.params.id}`}});
+      return res.status(403).json({error: {code: 403, message: 'Forbidden', details: `You are not the creator of article ${req.params.id}`}});
     }
     next();
   }

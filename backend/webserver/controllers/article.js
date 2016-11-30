@@ -59,11 +59,6 @@ module.exports = function(dependencies, lib) {
       .then(result => res.status(200).json(result))
       .catch(err => {
         logger.error('Error while updating article', err);
-
-        if (err.name.match(/ValidationError/)) {
-          return res.status(400).json({error: {code: 400, message: 'Bad request', details: 'Missing required parameters to update article'}});
-        }
-
         res.status(500).json({error: {code: 500, message: 'Server error', details: err.message}});
       });
     }
