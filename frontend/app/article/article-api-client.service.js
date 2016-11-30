@@ -9,6 +9,7 @@
       createArticle: createArticle,
       getArticle: getArticle,
       getArticles: getArticles,
+      updateArticle: updateArticle,
       updateArticleStatus: updateArticleStatus
     };
 
@@ -26,6 +27,10 @@
 
     function getArticles(options) {
       return _getRoot().getList(options);
+    }
+
+    function updateArticle(articleId, title, content) {
+      return _getRoot().one(articleId).customPUT({title: title, content: content});
     }
 
     function updateArticleStatus(articleId, status) {

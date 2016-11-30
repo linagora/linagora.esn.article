@@ -110,7 +110,17 @@ module.exports = function(dependencies) {
     });
   }
 
-  function update(article) {
-    return Article.findOneAndUpdate({_id: article._id}, article, {new: true});
+  function update(articleId, title, content) {
+    const updateQuery = {$set: {}};
+
+    if (title) {
+      updateQuery.$set.title = title;
+    }
+
+    if (content) {
+      updateQuery.$set.content = content;
+    }
+
+    return Article.findOneAndUpdate({_id: articleId}, updateQuery, {new: true});
   }
 };

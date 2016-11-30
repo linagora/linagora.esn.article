@@ -44,6 +44,17 @@
             template: '<article-view />'
           }
         }
+      })
+      .state('article.article-edit', {
+        url: '/articles/:articleId/edit',
+        params: {
+          article: null
+        },
+        views: {
+          'main@article': {
+            template: '<article-edit />'
+          }
+        }
       });
   });
 })();

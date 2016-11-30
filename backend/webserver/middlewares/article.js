@@ -1,13 +1,24 @@
 'use strict';
 
+const CONSTANTS = require('../../lib/constants');
+
 module.exports = function(dependencies, lib) {
 
   const logger = dependencies('logger');
 
   return {
+    canUpdate,
     isCreator,
     load
   };
+
+  function canUpdate(req, res, next) {
+    if (req.article.status !== CONSTANTS.STATUS.closed) {
+      return next();
+    }
+
+    return res.status(403).json({error: {code: 403, message: 'Forbidden', details: `You can not update the article ${req.params.id}`}});
+  }
 
   function isCreator(req, res, next) {
     if (!req.user._id.equals(req.article.creator._id)) {
