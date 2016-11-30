@@ -15,7 +15,7 @@
         i.mdi.mdi-heart
         span {{::ctrl.article.stats.likes.size || 0}}
       .comments
-        span(ng-if="ctrl.article.stats.comments.size !== 1") {{::ctrl.article.stats.comments.size || 0}} #{__('comments')}
-        span(ng-if="ctrl.article.stats.comments.size === 1") 1 #{__('comments')}
+        i.mdi.mdi-comment-outline
+        span {{::ctrl.article.stats.comments.size || 0}}
     .votes
       vote-summary-lite(object-type='ctrl.ARTICLE_OBJECT_TYPE', object-id='ctrl.article._id')
