@@ -12,3 +12,5 @@
       vote(object-type='ctrl.ARTICLE_OBJECT_TYPE', object-id='ctrl.article._id', can-vote='ctrl.article.status !== ctrl.ARTICLE_STATUS.closed')
   .article-view-comments(ng-if='ctrl.article')
     activity-stream(activitystream='ctrl.article', streams='ctrl.streams', writable='ctrl.writable')
+
+article-like-fab(ng-if='ctrl.article', article='ctrl.article')
