@@ -16,6 +16,7 @@ module.exports = function(dependencies) {
     getById,
     getNbOfComments,
     getNbOfLikes,
+    isLikedByUser,
     list,
     update
   };
@@ -93,6 +94,17 @@ module.exports = function(dependencies) {
 
   function getNbOfLikes(id) {
     return like.getNbOfLikes({id: String(id), objectType: OBJECT_TYPE});
+  }
+
+  function isLikedByUser(id, user) {
+    return like.isLikedBy({
+      objectType: 'user',
+      id: String(user._id)
+    },
+    {
+      objectType: CONSTANTS.OBJECT_TYPE,
+      id: String(id)
+    });
   }
 
   function list(options = {}) {
