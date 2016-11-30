@@ -9,6 +9,7 @@
     'esn.header',
     'esn.infinite-list',
     'esn.lodash-wrapper',
+    'esn.notification',
     'esn.router',
     'esn.sidebar',
     'esn.user',

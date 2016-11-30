@@ -4,7 +4,7 @@
   angular.module('linagora.esn.article')
     .controller('articleAddController', articleAddController);
 
-    function articleAddController($log, $state, articleApiClientService, session) {
+    function articleAddController($log, $state, articleApiClientService, notificationFactory, session) {
       var self = this;
 
       self.article = {};
@@ -17,10 +17,11 @@
        }
 
        articleApiClientService.createArticle(self.article).then(function() {
-         $log.debug('Article created');
+         notificationFactory.weakSuccess('success', 'Article successfuly created');
          $state.go('article.article-list');
        }, function(err) {
          $log.error('Error while creating article', err);
+         notificationFactory.weakError('error', 'Error while creating article');
        });
      }
    }

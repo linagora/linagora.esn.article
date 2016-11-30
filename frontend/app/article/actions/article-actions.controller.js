@@ -4,7 +4,7 @@
   angular.module('linagora.esn.article')
     .controller('articleActionsController', articleActionsController);
 
-   function articleActionsController($log, articleApiClientService, session, ARTICLE_STATUS) {
+   function articleActionsController($log, articleApiClientService, notificationFactory, session, ARTICLE_STATUS) {
      var self = this;
 
      self.$onInit = $onInit;
@@ -20,9 +20,10 @@
      function close() {
        articleApiClientService.updateArticleStatus(self.article._id, ARTICLE_STATUS.closed).then(function() {
          self.status = ARTICLE_STATUS.closed;
-         $log.debug('Article has been closed');
+         notificationFactory.weakSuccess('success', 'Article is now closed');
        }, function(err) {
          $log.debug('Error while closing article', err);
+         notificationFactory.weakError('error', 'Error while closing article');
        });
      }
 
@@ -34,8 +35,10 @@
        articleApiClientService.updateArticleStatus(self.article._id, ARTICLE_STATUS.open).then(function() {
          self.status = ARTICLE_STATUS.open;
          $log.debug('Article has been opened');
+         notificationFactory.weakSuccess('success', 'Article is now open');
        }, function(err) {
          $log.debug('Error while opening article', err);
+         notificationFactory.weakError('error', 'Error while opening article');
        });
      }
    }
