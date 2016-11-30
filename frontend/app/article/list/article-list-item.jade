@@ -11,7 +11,7 @@
     .read-more
       a(ui-sref="article.article-view({ article: ctrl.article, articleId: ctrl.article._id })") #{__('Read more...')}
     .stats
-      .likes
+      .likes(ng-class="{liked: ctrl.liked}")
         i.mdi.mdi-heart
         span {{::ctrl.article.stats.likes.size || 0}}
       .comments

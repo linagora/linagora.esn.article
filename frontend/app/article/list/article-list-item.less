@@ -51,9 +51,15 @@
         }
 
         i {
-          color: @likeColor;
+          color: @unlikeColor;
           font-size: 20px;
           margin-right: 5px;
+        }
+
+        &.liked {
+          i {
+            color: @likeColor !important;/*override material admin*/
+          }
         }
       }
 

@@ -22,7 +22,7 @@
      function unlike() {
        self.liked = false;
        articleLikeAPI.unlike(self.article._id).then(function() {
-         self.onUnliked && self.onUnliked;
+         self.onUnliked && self.onUnliked();
        }).catch(function() {
          self.liked = true;
        });
