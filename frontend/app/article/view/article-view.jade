@@ -3,8 +3,10 @@
     article-header(article='ctrl.article')
   .article-view-title
     h1 {{::ctrl.article.title}}
-  .article-view-content
-    {{::ctrl.article.content}}
+  .article-view-content(ng-if='ctrl.article')
+    .content(ng-bind-html='ctrl.article.parsed')
+  .article-view-oembed(ng-if='ctrl.article')
+    oembeds(message="ctrl.article.content")
   .article-view-options
     .article-view-vote(ng-if='ctrl.article')
       vote(object-type='ctrl.ARTICLE_OBJECT_TYPE', object-id='ctrl.article._id', can-vote='ctrl.article.status !== ctrl.ARTICLE_STATUS.closed')

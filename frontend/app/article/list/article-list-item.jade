@@ -6,7 +6,7 @@
     .status
       span(ng-if="ctrl.article.status === ctrl.ARTICLE_STATUS.closed") #{__("closed")}
   .summary
-    span {{::ctrl.article.summary}}
+    span(ng-bind-html="ctrl.article.parsedSummary")
   .bottom
     .read-more
       a(ui-sref="article.article-view({ article: ctrl.article, articleId: ctrl.article._id })") #{__('Read more...')}

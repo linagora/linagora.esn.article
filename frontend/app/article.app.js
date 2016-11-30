@@ -10,6 +10,8 @@
     'esn.infinite-list',
     'esn.lodash-wrapper',
     'esn.notification',
+    'esn.oembed.image',
+    'esn.parser',
     'esn.router',
     'esn.sidebar',
     'esn.user',
