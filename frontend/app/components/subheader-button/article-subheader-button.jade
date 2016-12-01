@@ -1,0 +1,8 @@
+button.btn.btn-link.article-button(ng-click= "ctrl.articleClick()", ng-disabled="ctrl.articleDisabled", ng-switch="ctrl.articleIconPosition")
+  .article-button-icon-and-text(ng-switch-when="right")
+    span {{::ctrl.articleIconText}}
+    i.mdi(ng-class="ctrl.articleIconClass")
+
+  .article-button-icon-and-text(ng-switch-default)
+    i.mdi(ng-class="ctrl.articleIconClass")
+    span {{::ctrl.articleIconText}}

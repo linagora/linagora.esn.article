@@ -1,0 +1,7 @@
+extends /modules/subheader/fullwidth-subheader
+
+block left
+  article-subheader-button(ui-sref="article.article-list", article-icon-class= "mdi-close", article-icon-text="Cancel")
+
+block right
+  article-subheader-button(article-click="ctrl.createArticle()", article-disabled= "ctrl.form.$invalid", article-icon-class="mdi-check", article-icon-text= "Create", article-icon-position="right")

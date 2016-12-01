@@ -1,5 +1,6 @@
+sub-header
+  article-add-subheader(create-article="ctrl.createArticle()", form= "ctrl.form")
+
 .article-add
   article-user-header(user="ctrl.user")
   article-form(article="ctrl.article", form-name="addArticle", form="ctrl.form")
-  .article-add-button
-    button.btn.btn-primary(ng-click="ctrl.createArticle()" type="submit") #{__('Publish')}

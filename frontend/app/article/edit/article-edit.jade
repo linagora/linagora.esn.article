@@ -1,5 +1,6 @@
+sub-header
+  article-edit-subheader(update-article="ctrl.updateArticle()", form= "ctrl.form", article="ctrl.article")
+
 .article-edit
   article-user-header(user="ctrl.user")
   article-form(article="ctrl.article", form-name="editArticle", form="ctrl.form")
-  .article-edit-button
-    button.btn.btn-primary(ng-click="ctrl.updateArticle()" type="submit") #{__('Submit Changes')}
