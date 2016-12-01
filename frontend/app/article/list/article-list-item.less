@@ -1,7 +1,11 @@
 .article-list-item {
   .card();
 
-  padding: 15px;
+  @media (max-width: @screen-xs-max) {
+    padding: 10px;
+  }
+
+  padding: 20px;
 
   .title {
     h1 {
@@ -39,51 +43,55 @@
 
     .stats {
       .flex-row;
+      .flex-space-between;
       padding-top: 10px;
 
-      & > * {
-        padding-right: 8px;
-      }
+      .left {
+        .flex-row;
 
-      .likes {
-        .flex-vertical-centered;
-
-        span {
-          font-size: 14px;
-          color: @secondaryTextColor;
+        & > * {
+          padding-right: 8px;
         }
 
-        i {
-          color: @unlikeColor;
-          font-size: 20px;
-          margin-right: 5px;
-        }
+        .likes {
+          .flex-vertical-centered;
 
-        &.liked {
+          span {
+            font-size: 14px;
+            color: @secondaryTextColor;
+          }
+
           i {
-            color: @likeColor !important;/*override material admin*/
+            color: @unlikeColor;
+            font-size: 20px;
+            margin-right: 5px;
+          }
+
+          &.liked {
+            i {
+              color: @likeColor !important;/*override material admin*/
+            }
           }
         }
-      }
 
-      .comments {
-        .flex-vertical-centered;
+        .comments {
+          .flex-vertical-centered;
 
-        span {
-          font-size: 14px;
-          color: @secondaryTextColor;
-        }
+          span {
+            font-size: 14px;
+            color: @secondaryTextColor;
+          }
 
-        i {
-          font-size: 20px;
-          margin-right: 5px;
-          color: @secondaryTextColor;
+          i {
+            font-size: 20px;
+            margin-right: 5px;
+            color: @secondaryTextColor;
+          }
         }
       }
     }
 
     .votes {
-      padding-top: 10px;
     }
   }
 }
