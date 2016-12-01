@@ -1,0 +1,7 @@
+extends /modules/subheader/fullwidth-subheader
+
+block left
+  article-subheader-button(ui-sref="article.article-list", article-icon-class= "mdi-chevron-left", article-icon-text="Back")
+
+block right
+  article-actions.article-actions-subheader(article='ctrl.article')
