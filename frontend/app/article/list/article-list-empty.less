@@ -1,0 +1,39 @@
+.article-list-empty {
+  .flex-vertical-centered;
+  height: 40vh;
+
+  .content {
+    .flex-column;
+
+    @media (max-width: @screen-xs-max) {
+      padding: 50px 10px;
+    }
+
+    .chat-text {
+      font-size: 22px;
+      color: @text-color;
+      padding-bottom: 20px;
+    }
+
+    .create-button {
+      .flex-horizontal-centered;
+
+      margin-top: 30px;
+      button {
+        padding-right: 35px;
+        padding-left: 35px;
+        font-size: x-large;
+      }
+    }
+
+    .title {
+      .flex-horizontal-centered;
+
+      margin-bottom: 20px;
+
+      h1 {
+        color: @text-color;
+      }
+    }
+  }
+}
