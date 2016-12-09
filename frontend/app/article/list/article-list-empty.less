@@ -1,0 +1,32 @@
+.article-list-empty {
+  .flex-vertical-centered;
+  height: 70vh;
+
+  .content {
+    .card();
+
+    @media (max-width: @screen-xs-max) {
+      padding: 50px 10px;
+    }
+
+    padding: 50px 20px;
+
+    h2 {
+      color: @text-color;
+    }
+
+    .howto {
+      color: @text-color;
+      font-size: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .chat {
+      color: @text-color;
+      font-size: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
