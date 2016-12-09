@@ -1,51 +1,39 @@
 .article-list-empty {
   .flex-vertical-centered;
-  height: 70vh;
+  height: 40vh;
 
   .content {
-    .card();
+    .flex-column;
 
     @media (max-width: @screen-xs-max) {
       padding: 50px 10px;
     }
 
-    padding: 50px 20px;
+    .chat-text {
+      font-size: 22px;
+      color: @text-color;
+      padding-bottom: 20px;
+    }
+
+    .create-button {
+      .flex-horizontal-centered;
+
+      margin-top: 30px;
+      button {
+        padding-right: 35px;
+        padding-left: 35px;
+        font-size: x-large;
+      }
+    }
 
     .title {
       .flex-horizontal-centered;
 
       margin-bottom: 20px;
-      
-      h2 {
+
+      h1 {
         color: @text-color;
       }
-    }
-
-    .howto {
-      color: @text-color;
-      font-size: 16px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-
-      button {
-        margin-left: 10px;
-        margin-right: 10px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        line-height: 45px !important;
-
-        i {
-          font-size: 22px;
-        }
-      }
-    }
-
-    .chat {
-      color: @text-color;
-      font-size: 16px;
-      padding-top: 10px;
-      padding-bottom: 10px;
     }
   }
 }
