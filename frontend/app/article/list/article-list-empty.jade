@@ -1,8 +1,13 @@
 .article-list-empty
   .content
-    h2 Welcome to your own public consultation instance
+    .title.vertical-centered
+      h2 #{__('Welcome to your own public consultation instance')}
     .howto
-      span #{__('You can now create articles by clicking on the yellow + button below, and start debating!')}
+      span #{__('You can now create articles and start debating by clicking on the yellow button below.')}
+      button.btn.btn-accent(type="button" ui-sref="article.article-add")
+        i.mdi.mdi-plus(ng-class="::options.fabIcon")
     .chat
-      span #{__('Also, we have setup a chat system just for you. Click on the square menu on the top right and choose "Chat".')}
+      span
+        a(ui-sref="chat") #{__('Also, we have setup a chat system just for you')}.
+      span #{__('Click on the square menu on the top right and choose "Chat".')}
       span #{__('There is a default channel called "General". You can create as many channels as you wish to organize the collaborations.')}

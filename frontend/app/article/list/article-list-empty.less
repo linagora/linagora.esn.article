@@ -11,8 +11,14 @@
 
     padding: 50px 20px;
 
-    h2 {
-      color: @text-color;
+    .title {
+      .flex-horizontal-centered;
+
+      margin-bottom: 20px;
+      
+      h2 {
+        color: @text-color;
+      }
     }
 
     .howto {
@@ -20,6 +26,19 @@
       font-size: 16px;
       padding-top: 10px;
       padding-bottom: 10px;
+
+      button {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        line-height: 45px !important;
+
+        i {
+          font-size: 22px;
+        }
+      }
     }
 
     .chat {
