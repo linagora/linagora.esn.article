@@ -9,7 +9,7 @@
     var directive = {
       restrict: 'E',
       replace: true,
-      template: applicationMenuTemplateBuilder('/#/article', 'mdi-pen', 'Articles')
+      template: applicationMenuTemplateBuilder('/#/article', { url: '/article/images/articles-icon.svg' }, 'Articles')
     };
 
     return directive;
