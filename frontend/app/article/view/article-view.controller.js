@@ -19,7 +19,6 @@
      self.$onInit = $onInit;
 
      function $onInit() {
-      //  console.log('ONINIT', $stateParams)
        if ($stateParams.article) {
          self.article = $stateParams.article;
          init();
