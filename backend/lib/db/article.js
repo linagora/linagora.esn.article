@@ -1,6 +1,6 @@
 'use strict';
 
-const uuid = require('node-uuid');
+const uuidV4 = require('uuid/v4');
 
 module.exports = function(dependencies) {
 
@@ -18,7 +18,7 @@ module.exports = function(dependencies) {
     type: {type: String, default: 'open'},
     status: {type: String, default: 'open'},
     activity_stream: {
-      uuid: {type: String, default: uuid.v4},
+      uuid: {type: String, default: uuidV4},
       timestamps: {
         creation: {type: Date, default: Date.now}
       }
