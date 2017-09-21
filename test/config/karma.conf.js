@@ -11,7 +11,6 @@ module.exports = function(config) {
       'frontend/components/angular/angular.js',
       'frontend/components/angular-ui-router/release/angular-ui-router.min.js',
       'frontend/components/angular-mocks/angular-mocks.js',
-      'test/mocks/ng-mock-component.js',
       'frontend/components/angular-component/dist/angular-component.min.js',
       'frontend/components/dynamic-directive/dist/dynamic-directive.min.js',
       'frontend/components/angular-uuid4/angular-uuid4.min.js',
@@ -24,7 +23,7 @@ module.exports = function(config) {
       'test/config/module.js',
       'frontend/app/article.app.js',
       'frontend/app/**/*.js',
-      'frontend/app/**/*.jade'
+      'frontend/app/**/*.pug'
     ],
     exclude: ['frontend/app/article.app.run.js'],
     frameworks: ['mocha'],
@@ -35,7 +34,7 @@ module.exports = function(config) {
     reporters: ['coverage', 'spec'],
     preprocessors: {
       'frontend/js/**/*.js': ['coverage'],
-      '**/*.jade': ['ng-jade2module']
+      '**/*.pug': ['ng-jade2module']
     },
 
     plugins: [
@@ -52,21 +51,23 @@ module.exports = function(config) {
 
     ngJade2ModulePreprocessor: {
       stripPrefix: 'frontend',
-      cacheIdFromPath: function(filepath) {
-        var cacheId = filepath.replace(/jade$/, 'html').replace(/^frontend/, '/article');
-
-return cacheId;
-      },
       prependPrefix: '/linagora.esn.article',
       // setting this option will create only a single module that contains templates
       // from all the files, so you can load them all with module('templates')
-      jadeRenderConfig: {
+      cacheIdFromPath: function(filepath) {
+        var cacheId = filepath.replace(/.pug$/, '.html').replace(/^frontend/, '/article');
+
+        return cacheId;
+      },
+      jadeRenderOptions: {
+        basedir: require('path').resolve(__dirname, '../../node_modules/linagora-rse/frontend/views')
+      },
+      jadeRenderLocals: {
         __: function(str) {
           return str;
         }
       },
       moduleName: 'jadeTemplates'
     }
-
   });
 };
