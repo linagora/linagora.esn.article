@@ -1,3 +1,5 @@
+![Archived](https://img.shields.io/badge/Current_Status-archived-blue?style=flat)
+
 # linagora.esn.article
 
 Article component for OpenPaaS ESN.
